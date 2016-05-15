@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+
+			<div class="slides">
+                <section data-markdown
+                    data-separator="\n---\n$"
+                    data-separator-vertical="\n--\n$">
+                    <script type="text/template">
+
+# Ruby勉強会
+
+---
+
+# この会の目的
+
+
+--
+
+
+# Ruby使ってみよう
+
+っていう気持ちになってもらう。
+
+...明日のスクリプトは是非Rubyで書いてみよう
+
+---
+
+# Rubyとは？
+
+ Ruby（ルビー）は、まつもとゆきひろ（通称 Matz）により開発されたオブジェクト指向スクリプト言語であり、スクリプト言語が用いられてきた領域でのオブジェク
+ト指向プログラミングを実現する。また日本で開発されたプログラミング言語としては初めて国際電気標準会議で国際規格に認証された事例となった。
+
+---
+
+# いいから
+
+# コード見せろ
+
+---
+
+# Ruby
+
+```rb
+puts 'Hello World'
+```
+
+# PHP
+
+```PHP
+<?php
+echo 'Hello World';
+```
+
+--
+
+これ以降のスライドでは、主にRubyとPHPを比較しながら紹介していきます。
+
+またPHPの開始句`<?php`は一々書くのが面倒なので省略します。
+
+注 別にPHPに対して特別な感情を持っているわけではありません。
+
+---
+
+# For
+
+
+## Ruby
+
+```rb
+0.upto(2) do |i|
+   puts i
+end
+```
+
+## PHP
+
+```php
+for($i=0; $i<3; $i++){
+   echo $i;
+}
+```
+
+--
+
+# Foreach
+
+## Ruby
+
+```rb
+list = [0, 1, 2]
+list.each do |l|
+    puts list
+end
+```
+## PHP
+
+```PHP
+$list = array(0, 1, 2);
+foreach(list as $l){
+    echo $l;
+}
+```
+
+---
+
+# Rubyの特徴
+
+- 打ちやすい
+- 分かりやすい
+- 覚えやすい
+
+---
+
+# 打ちやすい
+
+- Rubyのコンセプト「楽しくプログラミング」
+- 小指に負担のかかる記号入力が他の言語に比べて圧倒的に少ない
+- 先の例だけでも、記号の数は、
+    - Ruby : 12
+    - PHP  : 30
+
+こんなに差がつくとは思ってませんでした・・・。
+
+---
+
+# 分かりやすい
+
+for($i=0; $i<2; $i++) 
+
+って人間の言葉から程遠くないですか？
+
+--
+
+「これ3回やって」っていうのを、
+
+「最初に$iをゼロにして、1回やるごとに1加えて、$iが2未満だったら続けて」
+
+って言ってるようなもんですよね
+
+--
+
+Rubyのシンタックスだともっと簡単に書けます
+
+```rb
+# 基本はこれ
+0.upto(2) do
+```
+
+```rb
+# 配列を指定可能
+[0, 1, 2].each do
+```
+
+```rb
+# 回数だけが問題の場合、こんな書き方もできる
+3.times do
+```
+
+自然言語に近いですね
+
+---
+
+ところで
+
+--
+
+さっきから出てくる
+
+```rb
+.
+```
+
+って何よ？
+
+--
+
+この「.」こそが、RubyをRubyたらしめるものです。
+
+冒頭で「Rubyはオブジェクト指向言語」という説明があったかと思いますが、Rubyでは全てがオブジェクトです。
+
+（確か1個だけオブジェクトじゃないものがあった気がするんですが、忘れました）
+
+--
+
+## オブジェクト指向って何
+
+- プログラムの要素を世界現実の「モノ」のように扱うプログラム設計のことです。
+- JavaとかObjective-CとかPythonとかが標榜してます。
+- 主なメリットは、
+  - ライブラリをブラックボックス化できる
+  - 要素同士の結合度が低くなる
+  - 読みやすい ← これ重要
+
+---
+
+Rubyでは全てがオブジェクト
+
+```rb
+# 数字
+2.even?
+# => true
+2.odd?
+# => false
+
+# 文字列
+'abcde'.sub 'bc', '12'
+# => "a12de"
+
+# 配列
+list = [5, 4, 3, 2, 1]
+list.sort
+# => [1, 2, 3, 4, 5]
+```
+
+--
+
+ここでまた比較
+
+```rb
+num = 10
+if num.even?
+    puts 'num is even'
+end
+```
+
+```PHP
+$num = 10;
+if ($num % 2 == 0){
+    echo 'num is even';
+}
+```
+
+好みもあると思いますが、
+
+私は上の方が読みやすいと思います。
+
+
+---
+
+
+
+Rubyの言語仕様
+
+
+---
+
+
+
+
+---
+
+
+ありがとうございました
+
+
+                    </script>
+                </section>
+
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="config.js"></script>
+
+	</body>
+</html>
