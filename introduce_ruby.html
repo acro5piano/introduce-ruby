@@ -73,17 +73,18 @@
 
 ---
 
-# Ruby
-
-```rb
-puts 'Hello World'
-```
-
 # PHP
 
 ```PHP
 <?php
 echo 'Hello World';
+```
+
+# Ruby
+
+```rb
+#!/usr/bin/env ruby
+puts 'Hello World'
 ```
 
 --
@@ -98,6 +99,13 @@ echo 'Hello World';
 
 # For
 
+## PHP
+
+```php
+for($i=0; $i<3; $i++){
+   echo $i;
+}
+```
 
 ## Ruby
 
@@ -107,26 +115,10 @@ echo 'Hello World';
 end
 ```
 
-## PHP
-
-```php
-for($i=0; $i<3; $i++){
-   echo $i;
-}
-```
-
 --
 
 # Foreach
 
-## Ruby
-
-```rb
-list = [0, 1, 2]
-list.each do |l|
-    puts list
-end
-```
 ## PHP
 
 ```PHP
@@ -134,6 +126,15 @@ $list = array(0, 1, 2);
 foreach(list as $l){
     echo $l;
 }
+```
+
+## Ruby
+
+```rb
+list = [0, 1, 2]
+list.each do |l|
+    puts l
+end
 ```
 
 ---
@@ -160,7 +161,7 @@ foreach(list as $l){
 
 # 分かりやすい
 
-for($i=0; $i<2; $i++) 
+for($i=0; $i<2; $i++)
 
 って人間の言葉から程遠くないですか？
 
@@ -201,17 +202,17 @@ Rubyのシンタックスだともっと簡単に書けます
 
 さっきから出てくる
 
-```rb
-.
-```
 
-って何よ？
+.
+
+
+って何？
 
 --
 
 この「.」こそが、RubyをRubyたらしめるものです。
 
-冒頭で「Rubyはオブジェクト指向言語」という説明があったかと思いますが、Rubyでは全てがオブジェクトです。
+Rubyでは全てがオブジェクトです。
 
 （確か1個だけオブジェクトじゃないものがあった気がするんですが、忘れました）
 
@@ -253,7 +254,7 @@ list.sort
 # => [1, 2, 3, 4, 5]
 ```
 
-このように、ドットの後にオブジェクトが持っている関数を書きます。
+このように、ドットを挟んでオブジェクトが持っている関数を書きます。
 
 --
 
@@ -261,20 +262,17 @@ list.sort
 
 ```rb
 list = [5, 4, 3, 2, 1]
-list.sort[1].even?.to_s.sub 'ru', '12'
-# => "t12e"
+list.sort[1].even?.to_s.sub 'tru', '123'
+# => "123e"
 ```
+
+メソッドチェーンと呼ばれる書き方です。
 
 --
 
 ここでまた比較
 
-```rb
-num = 10
-if num.even?
-    puts 'num is even'
-end
-```
+# If
 
 ```PHP
 $num = 10;
@@ -283,9 +281,16 @@ if ($num % 2 == 0){
 }
 ```
 
+```rb
+num = 10
+if num.even?
+    puts 'num is even'
+end
+```
+
 好みもあると思いますが、
 
-私は上の方が読みやすいと思います。
+私は下の方が読みやすいと思います。
 
 
 ---
