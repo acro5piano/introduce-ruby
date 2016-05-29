@@ -44,6 +44,12 @@
 
 # Ruby勉強会
 
+株式会社クイック
+
+2016/05/30
+
+with <a href="https://github.com/hakimel/reveal.js/">reveal.js</a>
+
 ---
 
 # この会の目的
@@ -57,6 +63,14 @@
 っていう気持ちになってもらう。
 
 ...明日のスクリプトは是非Rubyで書いてみよう
+
+--
+
+# 想定聴者
+
+--
+
+PHPとかJavaScriptは分かるけどRuby触ったこと無い
 
 ---
 
@@ -73,6 +87,10 @@
 
 ---
 
+# Hello World
+
+--
+
 # PHP
 
 ```PHP
@@ -87,7 +105,7 @@ echo 'Hello World';
 puts 'Hello World'
 ```
 
---
+---
 
 これ以降のスライドでは、
 
@@ -121,7 +139,7 @@ end
 
 ```PHP
 $list = array(0, 1, 2);
-foreach(list as $l){
+foreach($list as $l){
     echo $l;
 }
 ```
@@ -137,11 +155,17 @@ end
 
 ---
 
+Rubyのコンセプト
+
+## 楽しくプログラミング
+
+---
+
 # Rubyの特徴
 
-- 打ちやすい
-- 分かりやすい
-- 覚えやすい
+- 打ちやすい<!-- .element: class="fragment" data-fragment-index="1" -->
+- 分かりやすい<!-- .element: class="fragment" data-fragment-index="2" -->
+- 覚えやすい<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ---
 
@@ -151,19 +175,22 @@ end
 
 ---
 
-- Rubyのコンセプト「楽しくプログラミング」
-- 小指に負担のかかる記号入力が他の言語に比べて圧倒的に少ない
+## 記号入力が圧倒的に少ない
+
+つまり<!-- .element: class="fragment" data-fragment-index="2" -->
+
+## 小指が疲れない<!-- .element: class="fragment" data-fragment-index="3" -->
 
 --
 
-さっきの例だけでも、記号の数は、
+さっきの<i>for, foreach</i>の例だけでも、記号の数は、
 
-    Ruby : 12個
     PHP  : 30個
+    Ruby : 12個
 
-・・・圧倒的に少ないです
+・・・圧倒的に少ないです<!-- .element: class="fragment" data-fragment-index="2" -->
 
-こんなに差がつくとは思ってませんでした・・・。
+こんなに差がつくとは思ってませんでした・・・。<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
 
@@ -173,7 +200,9 @@ end
 
 ---
 
-Rubyでは、自然言語に近い書き方ができるように工夫されています。
+Rubyでは、自然言語に近い書き方ができるように
+
+工夫されています。
 
 --
 
@@ -188,24 +217,24 @@ for($i=0; $i<2; $i++)
 「これ3回やって」っていうのを、
 
 
-- 最初に$iをゼロにして
-- 1回やるごとに1加えて
-- $iが2未満だったら続けて
+- 最初に$iをゼロにして<!-- .element: class="fragment" data-fragment-index="2" -->
+- 1回やるごとに1加えて<!-- .element: class="fragment" data-fragment-index="3" -->
+- $iが2未満だったら続けて<!-- .element: class="fragment" data-fragment-index="4" -->
 
-って言ってるようなもんですよね
+って言ってるようなもんですよね<!-- .element: class="fragment" data-fragment-index="5" -->
 
 --
 
-Rubyのシンタックスだともっと簡単に書けます
+Rubyのシンタックスだともっと直感的に書けます
 
 ```rb
 # 基本はこれ
-0.upto(2) do
+0.upto(2) do |i|
 ```
 
 ```rb
 # 配列を指定可能
-[0, 1, 2].each do
+[0, 1, 2].each do |i|
 ```
 
 ```rb
@@ -217,27 +246,36 @@ Rubyのシンタックスだともっと簡単に書けます
 
 ---
 
-- 打ちやすい
-- 分かりやすい
-- <span style="color:red">**覚えやすい**</span>
+どうしてこんな書き方ができるのでしょうか？
 
 ---
 
-Rubyの覚えやすさを説明するためには、
+それを説明するためには、
 
 オブジェクト指向の概念に触れておかねばなりません。
 
 --
 
+
 さっきから出てくる
 
 .
 
-って何？
+(ドット)とは何でしょうか？
+
+```rb
+[0, 1, 2].each do
+```
 
 --
 
-「モノ」が持つ機能を呼び出す時に使う記号です。
+- 直前にあるモノが持つ機能を呼び出す時に使う記号です。
+
+```rb
+[0, 1, 2].each do
+```
+
+--
 
 Rubyでは、登場するもの全てが「モノ（オブジェクト）です。
 
@@ -249,6 +287,7 @@ Rubyでは、登場するもの全てが「モノ（オブジェクト）です�
 
 ということができるのです。
 
+Rubyの世界では、0というオブジェクトが、<i>upto</i>という機能（メソッド）を持っているんです。
 
 --
 
@@ -260,6 +299,12 @@ Rubyでは、登場するもの全てが「モノ（オブジェクト）です�
   - ライブラリをブラックボックス化できる
   - 要素同士の結合度が低くなる
   - 読みやすい ← これ重要
+
+---
+
+- 打ちやすい
+- 分かりやすい
+- <span style="color:red">**覚えやすい**</span>
 
 ---
 
@@ -288,7 +333,7 @@ list.sort
 # => [1, 2, 3, 4, 5]
 ```
 
-このように、ドットを挟んでオブジェクトが持っている関数を書きます。
+このように、ドットを挟んでオブジェクトが持っている機能を呼び出します。
 
 --
 
@@ -302,18 +347,92 @@ list.sort[1].even?.to_s.sub 'tru', '123'
 
 メソッドチェーンと呼ばれる書き方です。
 
+
+分解すると
+
+```rb
+list.sort == [1, 2, 3, 4, 5]
+list.sort[1] == 2
+2.even? == true
+true.to_s == "true"
+"true".sub 'tru', '123' == "123e"
+```
+
 --
+
+これ、PHPでシンプルに書こうとすると
+
+```php
+$list = array(5, 4, 3, 2, 1);
+sort($list);
+$num = $list[1];
+if (($num % 2 ) == 0){
+    $str = 'true';
+} else {
+    $str = 'false';
+}
+echo str_replace('tru', '123', $str);
+```
+
+ちなみに、
+
+- この処理を書くのに5回ググりました。
+- 1行で書こうと思ってたんですが、連続でキャスト（(bool)でキャストしてから(str)でキャスト）できなかったので諦めました。
+
+---
+
+## 覚えやすい
+
+- Rubyではオブジェクトに対する操作が基本
+- 対してPHPでは、関数を使って処理を記述
+- オブジェクトの操作が嬉しい点<!-- .element: class="fragment" data-fragment-index="4" -->
+  - 引数が一つ減るので、その順番が覚えやすい<!-- .element: class="fragment" data-fragment-index="5" -->
+  - 日本語のように、左から右に読める<!-- .element: class="fragment" data-fragment-index="6" -->
+
+--
+
+### 引数が覚えやすい
+
+PHPあるある
+
+```php
+str_replace('tru', '123', 'true');
+# あれ、こっちだっけ・・・？
+str_replace('true', 'tru', '123');
+```
+
+Rubyの場合
+
+```rb
+'true'.sub 'tru', '123'
+```
+
+
+### 自然言語のように読める
+
+    'true'という文字列のうち、'tru'を'123'に置き換えます。
+
+という文章に近いのはどちらでしょうか。
+
+
+---
+
+まとめ
+
+---
 
 # If
 
+もうお分かりだと思いますが、
+
 ```PHP
 $num = 10;
-if ($num % 2 == 0){
+if ($num % 2 == 0) {
     echo 'num is even';
 }
 ```
 
-Rubyのメソッドを使うと、こんな書き方ができます。
+Rubyでは、こんな風に書きます。
 
 ```rb
 num = 10
@@ -322,25 +441,38 @@ if num.even?
 end
 ```
 
-好みもあると思いますが、
+---
 
-私は下の方が読みやすいと思います。
+どうでしょうか？
+
+使ってみたいと思いましたでしょうか？<!-- .element: class="fragment" data-fragment-index="4" -->
+
+--
+
+五所の足元のUbuntuには、Ruby環境完備です！！
+
+完全無料で使えて、面倒な会員登録もありません。
+
+さあ！
 
 
 ---
 
-
-
-Rubyの言語仕様
-
+# 最後に
 
 ---
 
+株式会社クイックでは、Ruby等の言語を使って
 
+楽しくプログラミングをしたい方を募集しています。
 
+shoukai-sys@919.jp
+
+aimstogeek.hatenablog.com
 
 ---
 
+今回は以上です。
 
 ありがとうございました
 
